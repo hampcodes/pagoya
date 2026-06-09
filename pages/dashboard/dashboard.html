@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PagoYa - Inicio</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="app-body">
+
+  <!-- responsive design: menu hamburguesa (visible solo en movil) -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <label for="nav-toggle" class="nav-toggle-btn">☰</label>
+
+  <aside class="sidebar">
+    <div class="brand">Pago<span>Ya</span></div>
+    <nav>
+      <div class="nav-section">
+        <span class="nav-section-title">Principal</span>
+        <a href="dashboard.html" class="nav-link active">Inicio</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Operaciones</span>
+        <a href="../account/list.html" class="nav-link">Cuentas</a>
+        <a href="../transfer/list.html" class="nav-link">Transferencias</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Analisis</span>
+        <a href="../reports/reports.html" class="nav-link">Reportes</a>
+        <a href="../assistant/assistant.html" class="nav-link">Asistente IA</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Cuenta</span>
+        <a href="../profile/profile.html" class="nav-link">Perfil</a>
+        <a href="../../index.html" class="nav-link">Cerrar sesion</a>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="layout">
+
+    <header class="topbar">
+      <span class="crumb">Inicio</span>
+      <div class="user">
+        <span>Henry Antonio Mendoza Puerta</span>
+        <span class="avatar">HAMP</span>
+      </div>
+    </header>
+
+    <main>
+
+      <div class="page-head">
+        <h1 class="page-title">Hola HAMP</h1>
+        <p class="page-subtitle">Resumen de tu actividad</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Saldo total</div>
+          <div class="value">S/ 6.641,25</div>
+          <div class="delta">+ 3,2% este mes</div>
+        </div>
+        <div class="stat">
+          <div class="label">Cuentas activas</div>
+          <div class="value">3</div>
+          <div class="delta">Ahorro y Corriente</div>
+        </div>
+        <div class="stat">
+          <div class="label">Transferencias del mes</div>
+          <div class="value">12</div>
+          <div class="delta">3 pendientes</div>
+        </div>
+        <div class="stat">
+          <div class="label">Ingresos del mes</div>
+          <div class="value">S/ 2.100,00</div>
+          <div class="delta">2 movimientos</div>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <a href="../transfer/form.html" class="quick">
+          <h3>Nueva transferencia</h3>
+          <p>Envia dinero a otra cuenta.</p>
+        </a>
+        <a href="../account/form.html" class="quick">
+          <h3>Agregar cuenta</h3>
+          <p>Registra una nueva cuenta bancaria.</p>
+        </a>
+        <a href="../reports/reports.html" class="quick">
+          <h3>Ver reportes</h3>
+          <p>Analiza tus movimientos del mes.</p>
+        </a>
+      </div>
+
+      <section class="panel">
+        <h2 class="panel-title">Ultimas transferencias</h2>
+        <p class="panel-subtitle">Movimientos mas recientes.</p>
+        <div class="tabla-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Destino</th>
+                <th>Concepto</th>
+                <th>Monto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2026-06-01</td>
+                <td>5555-6666-7777-8888</td>
+                <td>Servicios</td>
+                <td>S/ 145,30</td>
+              </tr>
+              <tr>
+                <td>2026-05-30</td>
+                <td>1111-2222-3333-4444</td>
+                <td>Devolucion</td>
+                <td>S/ 80,00</td>
+              </tr>
+              <tr>
+                <td>2026-05-28</td>
+                <td>9876-5432-1098-7654</td>
+                <td>Pago alquiler</td>
+                <td>S/ 250,00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>© 2026 PagoYa</footer>
+
+  </div>
+
+</body>
+</html>

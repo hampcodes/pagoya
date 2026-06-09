@@ -1,0 +1,877 @@
+/* PagoYa - hoja de estilos
+   Orden: tokens, base, componentes reutilizables (botones, formularios,
+   tablas), paginas (auth, landing, app) y responsive al final. */
+
+/* ----- Tokens: colores, sombras y radios usados en todo el sitio ----- */
+:root {
+  --rojo:        #c0392b;
+  --rojo-oscuro: #96281b;
+  --rojo-suave:  #fdecea;
+  --texto:       #1f2024;
+  --texto-2:    #4b4f57;
+  --gris:        #6b7280;
+  --gris-claro:  #f2f3f5;
+  --borde:       #e5e7eb;
+  --fondo:       #ffffff;
+  --fondo-app:   #f6f7f9;
+  --sidebar-bg:  #1f2024;
+  --sidebar-tx:  #c9ccd1;
+  --sidebar-mut: #8a8f99;
+  --sombra:      0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --sombra-md:   0 4px 16px rgba(0, 0, 0, 0.08);
+  --radio:       10px;
+  --radio-sm:    6px;
+}
+
+/* ----- Reset y base: aplican a todas las paginas ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  background-color: var(--fondo-app);
+  color: var(--texto);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--rojo);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ----- Botones: .btn base (rojo) + variantes ----- */
+.btn {
+  display: inline-block;
+  padding: 9px 18px;
+  background-color: var(--rojo);
+  color: var(--fondo);
+  border: 1px solid var(--rojo);
+  border-radius: var(--radio-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.btn:hover {
+  background-color: var(--rojo-oscuro);
+  border-color: var(--rojo-oscuro);
+  text-decoration: none;
+}
+
+/* Secundario: relleno blanco, texto rojo */
+.btn-secundario {
+  background-color: var(--fondo);
+  color: var(--rojo);
+}
+
+.btn-secundario:hover {
+  background-color: var(--rojo-suave);
+  color: var(--rojo);
+}
+
+/* Outline: para fondos oscuros (barra del landing) */
+.btn-outline {
+  background-color: transparent;
+  color: var(--fondo);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: var(--fondo);
+  color: var(--fondo);
+}
+
+/* Ocupa todo el ancho / mas grande */
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-grande {
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+/* ----- Formularios: inputs, acciones, grilla y mensajes ----- */
+label {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--texto-2);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-sm);
+  font-size: 0.92rem;
+  background-color: var(--fondo);
+  font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--rojo);
+  box-shadow: 0 0 0 3px var(--rojo-suave);
+}
+
+/* Botonera al pie del formulario */
+.form-actions {
+  margin-top: 22px;
+  display: flex;
+  gap: 10px;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+/* Formulario en 2 columnas; .full ocupa la fila entera */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 18px;
+}
+
+.form-grid .full {
+  grid-column: 1 / -1;
+}
+
+/* Mensajes en pantalla (reemplazan a alert) */
+.form-mensaje {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.form-mensaje--error {
+  background: #fdecea;
+  color: #b3261e;
+  border: 1px solid #f5c2c0;
+}
+
+.form-mensaje--exito {
+  background: #e7f4ea;
+  color: #1e7e34;
+  border: 1px solid #b7dfc1;
+}
+
+/* ----- Tablas: contenedor con scroll, encabezado y filas ----- */
+.tabla-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background-color: var(--fondo);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead {
+  background-color: var(--gris-claro);
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--borde);
+}
+
+th {
+  color: var(--texto-2);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+tbody tr:hover {
+  background-color: var(--gris-claro);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Enlaces de la columna de acciones (Editar / Eliminar) */
+td.acciones a {
+  margin-right: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ===== Paginas auth (login / registro): panel oscuro + formulario ===== */
+.auth-body {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Panel lateral oscuro (mismo fondo que el CTA del landing) */
+.auth-side {
+  flex: 1;
+  background-color: var(--sidebar-bg);
+  color: var(--fondo);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px;
+}
+
+/* Logo igual al landing; enlaza de vuelta a la portada */
+.auth-side-logo {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--fondo);
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+.auth-side-logo span {
+  color: var(--rojo);
+}
+
+.auth-side-logo:hover {
+  text-decoration: none;
+}
+
+.auth-side-text {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.05rem;
+  max-width: 360px;
+}
+
+/* Lado del formulario: centra la tarjeta */
+.auth-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--fondo);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-md);
+  padding: 36px 32px;
+}
+
+.auth-card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.auth-card .subtitulo {
+  color: var(--gris);
+  font-size: 0.88rem;
+  margin-bottom: 18px;
+}
+
+/* Pie de la tarjeta: "Ya tenes cuenta?" */
+.form-foot {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.88rem;
+  color: var(--gris);
+}
+
+/* ===== Landing (index.html) ===== */
+.landing-body {
+  background-color: var(--fondo);
+  color: var(--texto);
+}
+
+/* Bloque superior oscuro: la barra y el hero comparten el fondo */
+.landing-top {
+  background-color: var(--sidebar-bg);
+  color: var(--fondo);
+}
+
+.landing-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+/* Logo: "Pago" blanco + "Ya" rojo (igual que el sidebar) */
+.landing-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--fondo);
+  letter-spacing: 0.5px;
+}
+
+.landing-brand span {
+  color: var(--rojo);
+}
+
+.landing-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Hero: titular grande y CTA sobre el fondo oscuro */
+.hero {
+  text-align: center;
+  padding: 48px 24px 88px;
+}
+
+.hero-title {
+  color: var(--fondo);
+  font-size: 2.6rem;
+  line-height: 1.15;
+  max-width: 640px;
+  margin: 0 auto 16px;
+}
+
+.hero-subtitle {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Caracteristicas: 3 tarjetas de "que hace" */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 64px;
+}
+
+.feature {
+  background-color: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.feature h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.feature p {
+  color: var(--gris);
+  font-size: 0.95rem;
+}
+
+/* Beneficios: lista en 2 columnas con acento rojo a la izquierda */
+.benefits {
+  background-color: var(--fondo-app);
+  padding: 64px 24px;
+}
+
+.benefits-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 32px;
+}
+
+.benefits-list {
+  list-style: none;
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.benefits-list li {
+  background-color: var(--fondo);
+  border-left: 3px solid var(--rojo);
+  border-radius: var(--radio-sm);
+  box-shadow: var(--sombra);
+  padding: 18px 20px;
+  color: var(--texto-2);
+}
+
+.benefits-list strong {
+  display: block;
+  color: var(--texto);
+  margin-bottom: 4px;
+}
+
+/* Llamado final: franja oscura con boton rojo */
+.cta-final {
+  background-color: var(--sidebar-bg);
+  color: var(--fondo);
+  text-align: center;
+  padding: 64px 24px;
+}
+
+.cta-final h2 {
+  color: var(--fondo);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.cta-final p {
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 28px;
+}
+
+.landing-footer {
+  text-align: center;
+  color: var(--gris);
+  font-size: 0.9rem;
+  padding: 28px 24px;
+}
+
+/* ===== App (paginas internas con sidebar) ===== */
+
+/* Estructura: sidebar a la izquierda + columna de contenido */
+.app-body {
+  display: flex;
+  min-height: 100vh;
+}
+
+.layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+main {
+  flex: 1;
+  padding: 28px 36px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Menu lateral fijo y sus enlaces */
+.sidebar {
+  width: 240px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-tx);
+  display: flex;
+  flex-direction: column;
+  padding: 22px 14px;
+  flex-shrink: 0;
+}
+
+.sidebar .brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 4px 12px 22px;
+  border-bottom: 1px solid #2c2e34;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+.sidebar .brand span {
+  color: var(--rojo);
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.nav-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-section-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--sidebar-mut);
+  padding: 0 12px 6px;
+}
+
+.nav-link {
+  display: block;
+  padding: 9px 12px;
+  border-radius: var(--radio-sm);
+  color: var(--sidebar-tx);
+  font-size: 0.92rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-link:hover {
+  background-color: #2c2e34;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  background-color: var(--rojo);
+  color: #ffffff;
+}
+
+/* Barra superior: migas de pan + usuario/avatar */
+header.topbar {
+  background-color: var(--fondo);
+  border-bottom: 1px solid var(--borde);
+  padding: 14px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar .crumb {
+  color: var(--gris);
+  font-size: 0.88rem;
+}
+
+.topbar .user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--texto-2);
+  font-size: 0.9rem;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--rojo-suave);
+  color: var(--rojo);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* Encabezado de cada pagina interna */
+.page-head {
+  margin-bottom: 22px;
+}
+
+.page-title {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  color: var(--gris);
+  font-size: 0.9rem;
+}
+
+/* Pie de las paginas internas */
+footer {
+  padding: 16px 36px;
+  border-top: 1px solid var(--borde);
+  background-color: var(--fondo);
+  color: var(--gris);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+/* ----- Paneles: caja blanca contenedora ----- */
+.panel {
+  background-color: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 24px;
+}
+
+.panel + .panel {
+  margin-top: 20px;
+}
+
+/* Panel angosto y centrado (formularios) */
+.panel-narrow {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.panel-title {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.panel-subtitle {
+  color: var(--gris);
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+
+/* Dos paneles lado a lado */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ----- Widgets del dashboard ----- */
+
+/* Tarjetas de estadisticas (4 en fila) */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.stat {
+  background-color: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 18px 20px;
+  box-shadow: var(--sombra);
+}
+
+.stat .label {
+  color: var(--gris);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 8px;
+}
+
+.stat .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.stat .delta {
+  font-size: 0.8rem;
+  color: var(--gris);
+  margin-top: 4px;
+}
+
+/* Accesos rapidos (tarjetas con borde rojo) */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.quick {
+  background-color: var(--fondo);
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--rojo);
+  border-radius: var(--radio);
+  padding: 18px 20px;
+  box-shadow: var(--sombra);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.quick:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-md);
+  text-decoration: none;
+}
+
+.quick h3 {
+  color: var(--rojo);
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.quick p {
+  color: var(--gris);
+  font-size: 0.85rem;
+}
+
+/* ----- Toolbar: buscador + boton de las listas ----- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.filtro {
+  flex: 1;
+  max-width: 360px;
+  padding: 9px 14px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-sm);
+  font-size: 0.9rem;
+  background-color: var(--fondo);
+}
+
+.filtro:focus {
+  outline: none;
+  border-color: var(--rojo);
+  box-shadow: 0 0 0 3px var(--rojo-suave);
+}
+
+/* Boton hamburguesa: oculto en desktop, visible en movil */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-btn {
+  display: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ===== Responsive ===== */
+
+/* Tablet: sidebar mas angosto, grillas a 2 columnas */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  main {
+    padding: 24px;
+  }
+}
+
+/* Movil: sidebar deslizable con el boton hamburguesa, todo a 1 columna */
+@media (max-width: 760px) {
+  .features,
+  .benefits-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  /* Auth: panel oscuro arriba, formulario abajo */
+  .auth-body {
+    flex-direction: column;
+  }
+
+  .auth-side {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-toggle-btn {
+    display: flex;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 110;
+    width: 42px;
+    height: 42px;
+    background-color: var(--sidebar-bg);
+    color: #fff;
+    border-radius: var(--radio-sm);
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    flex-direction: column;
+    padding: 22px 14px;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .nav-toggle:checked ~ .sidebar {
+    transform: translateX(0);
+  }
+
+  header.topbar {
+    padding: 12px 16px 12px 64px;
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  .stats,
+  .quick-actions,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filtro {
+    max-width: 100%;
+  }
+
+  .auth-card {
+    padding: 28px 22px;
+  }
+
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .stat .value {
+    font-size: 1.3rem;
+  }
+}

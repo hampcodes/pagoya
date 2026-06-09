@@ -1,0 +1,23 @@
+# --- Basura del sistema operativo ---
+.DS_Store          # macOS
+.DS_Store?
+._*
+Thumbs.db          # Windows
+ehthumbs.db
+Desktop.ini
+
+# --- Configuración del editor ---
+.vscode/
+.idea/
+*.swp
+
+# --- Netlify (carpetas locales que genera la CLI, no van al repo) ---
+.netlify/
+
+# --- Logs y temporales ---
+*.log
+npm-debug.log*
+
+# --- Variables de entorno (por si algún día agregan claves) ---
+.env
+.env.*

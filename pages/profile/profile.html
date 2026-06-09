@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PagoYa - Perfil</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script type="module" src="../../js/profile/profile.js"></script>
+</head>
+<body class="app-body">
+
+  <!-- responsive design: menu hamburguesa (visible solo en movil) -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <label for="nav-toggle" class="nav-toggle-btn">☰</label>
+
+  <aside class="sidebar">
+    <div class="brand">Pago<span>Ya</span></div>
+    <nav>
+      <div class="nav-section">
+        <span class="nav-section-title">Principal</span>
+        <a href="../dashboard/dashboard.html" class="nav-link">Inicio</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Operaciones</span>
+        <a href="../account/list.html" class="nav-link">Cuentas</a>
+        <a href="../transfer/list.html" class="nav-link">Transferencias</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Analisis</span>
+        <a href="../reports/reports.html" class="nav-link">Reportes</a>
+        <a href="../assistant/assistant.html" class="nav-link">Asistente IA</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Cuenta</span>
+        <a href="profile.html" class="nav-link active">Perfil</a>
+        <a href="../../index.html" class="nav-link">Cerrar sesion</a>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="layout">
+
+    <header class="topbar">
+      <span class="crumb">Cuenta / Perfil</span>
+      <div class="user">
+        <span>Henry Antonio Mendoza Puerta</span>
+        <span class="avatar">HAMP</span>
+      </div>
+    </header>
+
+    <main>
+
+      <div class="page-head">
+        <h1 class="page-title">Perfil</h1>
+        <p class="page-subtitle">Actualiza tus datos personales y de acceso.</p>
+      </div>
+
+      <div class="grid-2">
+
+        <section class="panel">
+          <h2 class="panel-title">Datos personales</h2>
+          <p class="panel-subtitle">Informacion visible en tu perfil.</p>
+          <form>
+            <p class="form-mensaje" hidden></p>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" value="Henry Antonio">
+
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" value="Mendoza Puerta">
+
+            <label for="email">Correo</label>
+            <input type="email" id="email" value="hamp@correo.com">
+
+            <label for="telefono">Telefono</label>
+            <input type="text" id="telefono" placeholder="+51 987 654 321">
+
+            <div class="form-actions">
+              <button type="submit" class="btn">Guardar cambios</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">Cambiar contrasena</h2>
+          <p class="panel-subtitle">Actualiza tu contrasena de acceso.</p>
+          <form>
+            <p class="form-mensaje" hidden></p>
+            <label for="actual">Contrasena actual</label>
+            <input type="password" id="actual" placeholder="••••••••">
+
+            <label for="nueva">Nueva contrasena</label>
+            <input type="password" id="nueva" placeholder="••••••••">
+
+            <label for="repetir">Repetir nueva contrasena</label>
+            <input type="password" id="repetir" placeholder="••••••••">
+
+            <div class="form-actions">
+              <button type="submit" class="btn">Actualizar contrasena</button>
+            </div>
+          </form>
+        </section>
+
+      </div>
+
+    </main>
+
+    <footer>© 2026 PagoYa</footer>
+
+  </div>
+
+</body>
+</html>

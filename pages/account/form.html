@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PagoYa - Nueva cuenta</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script type="module" src="../../js/account/account.js"></script>
+</head>
+<body class="app-body">
+
+  <!-- responsive design: menu hamburguesa (visible solo en movil) -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <label for="nav-toggle" class="nav-toggle-btn">☰</label>
+
+  <aside class="sidebar">
+    <div class="brand">Pago<span>Ya</span></div>
+    <nav>
+      <div class="nav-section">
+        <span class="nav-section-title">Principal</span>
+        <a href="../dashboard/dashboard.html" class="nav-link">Inicio</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Operaciones</span>
+        <a href="list.html" class="nav-link active">Cuentas</a>
+        <a href="../transfer/list.html" class="nav-link">Transferencias</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Analisis</span>
+        <a href="../reports/reports.html" class="nav-link">Reportes</a>
+        <a href="../assistant/assistant.html" class="nav-link">Asistente IA</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Cuenta</span>
+        <a href="../profile/profile.html" class="nav-link">Perfil</a>
+        <a href="../../index.html" class="nav-link">Cerrar sesion</a>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="layout">
+
+    <header class="topbar">
+      <span class="crumb">Operaciones / Cuentas / Nueva</span>
+      <div class="user">
+        <span>Henry Antonio Mendoza Puerta</span>
+        <span class="avatar">HAMP</span>
+      </div>
+    </header>
+
+    <main>
+
+      <div class="page-head">
+        <h1 class="page-title">Nueva cuenta</h1>
+        <p class="page-subtitle">Completa los datos para registrar una cuenta.</p>
+      </div>
+
+      <section class="panel panel-narrow">
+        <form>
+          <p class="form-mensaje" hidden></p>
+          <div class="form-grid">
+            <div>
+              <label for="titular">Titular</label>
+              <input type="text" id="titular" placeholder="Nombre del titular" required>
+            </div>
+            <div>
+              <label for="tipo">Tipo de cuenta</label>
+              <select id="tipo" required>
+                <option value="">Seleccionar...</option>
+                <option>Ahorro</option>
+                <option>Corriente</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="numero">Numero de cuenta</label>
+              <input type="text" id="numero" placeholder="0000-0000-0000-0000" required>
+            </div>
+            <div class="full">
+              <label for="saldo">Saldo inicial</label>
+              <input type="number" id="saldo" placeholder="0.00" min="0" step="0.01" required>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <a href="list.html" class="btn btn-secundario">Cancelar</a>
+            <button type="submit" class="btn">Guardar</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>© 2026 PagoYa</footer>
+
+  </div>
+
+</body>
+</html>

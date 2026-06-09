@@ -1,0 +1,4 @@
+# Configuracion minima de Netlify para sitio estatico (sin compilacion)
+[build]
+  publish = "."   # publica la raiz del proyecto (donde esta index.html)
+  command = ""    # no hay paso de build

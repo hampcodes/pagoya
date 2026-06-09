@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PagoYa - Asistente IA</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="app-body">
+
+  <!-- responsive design: menu hamburguesa (visible solo en movil) -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <label for="nav-toggle" class="nav-toggle-btn">☰</label>
+
+  <aside class="sidebar">
+    <div class="brand">Pago<span>Ya</span></div>
+    <nav>
+      <div class="nav-section">
+        <span class="nav-section-title">Principal</span>
+        <a href="../dashboard/dashboard.html" class="nav-link">Inicio</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Operaciones</span>
+        <a href="../account/list.html" class="nav-link">Cuentas</a>
+        <a href="../transfer/list.html" class="nav-link">Transferencias</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Analisis</span>
+        <a href="../reports/reports.html" class="nav-link">Reportes</a>
+        <a href="assistant.html" class="nav-link active">Asistente IA</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Cuenta</span>
+        <a href="../profile/profile.html" class="nav-link">Perfil</a>
+        <a href="../../index.html" class="nav-link">Cerrar sesion</a>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="layout">
+
+    <header class="topbar">
+      <span class="crumb">Analisis / Asistente IA</span>
+      <div class="user">
+        <span>Henry Antonio Mendoza Puerta</span>
+        <span class="avatar">HAMP</span>
+      </div>
+    </header>
+
+    <main>
+
+      <div class="page-head">
+        <h1 class="page-title">Asistente IA</h1>
+        <p class="page-subtitle">Consulta sobre tus finanzas en lenguaje natural.</p>
+      </div>
+
+      <section class="panel panel-narrow">
+        <form>
+          <label for="pregunta">Pregunta</label>
+          <textarea id="pregunta" rows="4" placeholder="Ej: cuanto gaste en servicios el mes pasado?"></textarea>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Consultar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel panel-narrow">
+        <h2 class="panel-title">Sugerencias</h2>
+        <p class="panel-subtitle">Ideas para consultar al asistente.</p>
+        <div class="grid-2">
+          <a href="#" class="quick">
+            <h3>Resumen del mes</h3>
+            <p>Ver ingresos y egresos de mayo.</p>
+          </a>
+          <a href="#" class="quick">
+            <h3>Recomendar ahorro</h3>
+            <p>Sugerencias para reducir gastos.</p>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>© 2026 PagoYa</footer>
+
+  </div>
+
+</body>
+</html>

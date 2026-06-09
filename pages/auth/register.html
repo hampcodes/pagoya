@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PagoYa - Crear cuenta</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script type="module" src="../../js/auth/register.js"></script>
+</head>
+<body class="auth-body">
+
+  <aside class="auth-side">
+    <a href="../../index.html" class="auth-side-logo">Pago<span>Ya</span></a>
+    <p class="auth-side-text">
+      Crea tu cuenta en minutos y empieza a mover tu dinero hoy.
+      Sin filas, sin complicaciones.
+    </p>
+  </aside>
+
+  <main class="auth-main">
+    <div class="auth-card">
+      <form action="../dashboard/dashboard.html" method="get">
+        <h2>Registro</h2>
+        <p class="subtitulo">Completa tus datos para empezar.</p>
+
+        <p class="form-mensaje" hidden></p>
+
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" placeholder="Nombre y apellido" required>
+
+        <label for="email">Correo</label>
+        <input type="email" id="email" placeholder="tu@correo.com" required>
+
+        <label for="password">Contrasena</label>
+        <input type="password" id="password" placeholder="••••••••" required>
+
+        <label for="password2">Repetir contrasena</label>
+        <input type="password" id="password2" placeholder="••••••••" required>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-block">Registrarme</button>
+        </div>
+
+        <p class="form-foot">
+          Ya tenes cuenta? <a href="login.html">Iniciar sesion</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+</body>
+</html>

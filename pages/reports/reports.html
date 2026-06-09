@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PagoYa - Reportes</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="app-body">
+
+  <!-- responsive design: menu hamburguesa (visible solo en movil) -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <label for="nav-toggle" class="nav-toggle-btn">☰</label>
+
+  <aside class="sidebar">
+    <div class="brand">Pago<span>Ya</span></div>
+    <nav>
+      <div class="nav-section">
+        <span class="nav-section-title">Principal</span>
+        <a href="../dashboard/dashboard.html" class="nav-link">Inicio</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Operaciones</span>
+        <a href="../account/list.html" class="nav-link">Cuentas</a>
+        <a href="../transfer/list.html" class="nav-link">Transferencias</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Analisis</span>
+        <a href="reports.html" class="nav-link active">Reportes</a>
+        <a href="../assistant/assistant.html" class="nav-link">Asistente IA</a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-section-title">Cuenta</span>
+        <a href="../profile/profile.html" class="nav-link">Perfil</a>
+        <a href="../../index.html" class="nav-link">Cerrar sesion</a>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="layout">
+
+    <header class="topbar">
+      <span class="crumb">Analisis / Reportes</span>
+      <div class="user">
+        <span>Henry Antonio Mendoza Puerta</span>
+        <span class="avatar">HAMP</span>
+      </div>
+    </header>
+
+    <main>
+
+      <div class="page-head">
+        <h1 class="page-title">Reportes</h1>
+        <p class="page-subtitle">Resumen financiero del periodo.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Ingresos</div>
+          <div class="value">S/ 2.100,00</div>
+          <div class="delta">Mayo 2026</div>
+        </div>
+        <div class="stat">
+          <div class="label">Egresos</div>
+          <div class="value">S/ 1.475,30</div>
+          <div class="delta">Mayo 2026</div>
+        </div>
+        <div class="stat">
+          <div class="label">Balance</div>
+          <div class="value">S/ 624,70</div>
+          <div class="delta">Positivo</div>
+        </div>
+        <div class="stat">
+          <div class="label">Operaciones</div>
+          <div class="value">15</div>
+          <div class="delta">Total del mes</div>
+        </div>
+      </div>
+
+      <section class="panel">
+        <h2 class="panel-title">Movimientos por categoria</h2>
+        <p class="panel-subtitle">Distribucion de egresos del mes.</p>
+        <div class="tabla-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Categoria</th>
+                <th>Operaciones</th>
+                <th>Total</th>
+                <th>% del mes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Servicios</td><td>4</td><td>S/ 580,00</td><td>39%</td></tr>
+              <tr><td>Alquiler</td><td>1</td><td>S/ 500,00</td><td>34%</td></tr>
+              <tr><td>Compras</td><td>6</td><td>S/ 295,30</td><td>20%</td></tr>
+              <tr><td>Otros</td><td>2</td><td>S/ 100,00</td><td>7%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>© 2026 PagoYa</footer>
+
+  </div>
+
+</body>
+</html>
