@@ -184,6 +184,21 @@ input:focus, select:focus, textarea:focus {
   border: 1px solid #b7dfc1;
 }
 
+/* ----- Chat del Asistente IA ----- */
+
+/* La caja del chat, con scroll si hay muchos mensajes. */
+.chat {
+  height: 360px;
+  overflow-y: auto;
+  margin: 16px 0;
+}
+
+/* Cada mensaje: respeta los saltos de linea y se separa del siguiente. */
+.chat p {
+  white-space: pre-wrap;
+  margin: 0 0 12px;
+}
+
 /* ----- Tablas: contenedor con scroll, encabezado y filas ----- */
 .tabla-wrap {
   overflow-x: auto;

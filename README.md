@@ -16,6 +16,8 @@ con `localStorage`.
 - **Cuentas:** crear, editar, eliminar y buscar cuentas bancarias.
 - **Transferencias:** registrar y listar movimientos entre cuentas.
 - **Reportes:** resumen de ingresos, egresos y movimientos por categoría.
+- **Asistente IA (PagoBot):** chat con memoria que responde sobre tus finanzas
+  (cuentas y transferencias) y genera imágenes, usando la API de OpenAI.
 - **Perfil:** actualizar datos personales y cambiar la contraseña.
 - **Diseño responsive:** se adapta a computadora, tablet y celular.
 
@@ -25,6 +27,7 @@ con `localStorage`.
 - CSS3
 - JavaScript (ES Modules)
 - localStorage
+- API de OpenAI (chat `gpt-4o-mini` e imágenes `gpt-image-1`)
 
 ## Cómo usar
 
@@ -32,6 +35,15 @@ con `localStorage`.
 2. Abre `index.html` en tu navegador.
 
 > No necesita instalación ni servidor: es un sitio estático.
+
+### Asistente IA
+
+El asistente requiere una **API key de OpenAI**. Como el proyecto no tiene
+backend, cada persona ingresa su propia clave en la página del Asistente; se usa
+solo en tu navegador y no se almacena en ningún servidor.
+
+> En un sitio real, la clave debería manejarse desde un servidor y nunca
+> exponerse en el navegador.
 
 ## Autor
 

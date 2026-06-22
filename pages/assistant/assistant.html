@@ -51,33 +51,27 @@
 
       <div class="page-head">
         <h1 class="page-title">Asistente IA</h1>
-        <p class="page-subtitle">Consulta sobre tus finanzas en lenguaje natural.</p>
+        <p class="page-subtitle">Genera texto e imagenes con OpenAI.</p>
       </div>
 
       <section class="panel panel-narrow">
-        <form>
-          <label for="pregunta">Pregunta</label>
-          <textarea id="pregunta" rows="4" placeholder="Ej: cuanto gaste en servicios el mes pasado?"></textarea>
+        <!-- Sin backend, cada persona usa SU propia API key (se guarda solo
+             en este navegador). En un sitio real iria en un servidor. -->
+        <label for="apiKey">API key de OpenAI</label>
+        <input type="password" id="apiKey" placeholder="sk-..." autocomplete="off">
+
+        <!-- Aqui se van acumulando los mensajes y las imagenes. -->
+        <div id="chat" class="chat"></div>
+
+        <form id="formChat">
+          <div class="form-mensaje" hidden></div>
+          <textarea id="pregunta" rows="2" placeholder="Escribe un mensaje o describe una imagen..."></textarea>
 
           <div class="form-actions">
-            <button type="submit" class="btn">Consultar</button>
+            <button type="submit" class="btn">Enviar texto</button>
+            <button type="button" id="btnImagen" class="btn btn-secundario">Generar imagen</button>
           </div>
         </form>
-      </section>
-
-      <section class="panel panel-narrow">
-        <h2 class="panel-title">Sugerencias</h2>
-        <p class="panel-subtitle">Ideas para consultar al asistente.</p>
-        <div class="grid-2">
-          <a href="#" class="quick">
-            <h3>Resumen del mes</h3>
-            <p>Ver ingresos y egresos de mayo.</p>
-          </a>
-          <a href="#" class="quick">
-            <h3>Recomendar ahorro</h3>
-            <p>Sugerencias para reducir gastos.</p>
-          </a>
-        </div>
       </section>
 
     </main>
@@ -85,6 +79,8 @@
     <footer>© 2026 PagoYa</footer>
 
   </div>
+
+  <script type="module" src="../../js/assistant/assistant.js"></script>
 
 </body>
 </html>
