@@ -1,5 +1,5 @@
 
-// ----- Elementos de la pagina -----
+// TO-DO(HAMP): Elementos de la pagina
 
 const chat = document.getElementById("chat");
 const form = document.getElementById("formChat");
@@ -8,7 +8,7 @@ const inputKey = document.getElementById("apiKey");
 const btnImagen = document.getElementById("btnImagen");
 
 
-// ----- System prompt: reglas + datos del usuario -----
+// TO-DO(HAMP):System prompt: reglas + datos del usuario
 
 const cuentas = JSON.parse(localStorage.getItem("cuentas")) || [];
 const transferencias = JSON.parse(localStorage.getItem("transferencias")) || [];
@@ -22,11 +22,11 @@ Si te preguntan otra cosa, responde con amabilidad: "Lo siento, solo puedo ayuda
 Cuentas del usuario: ${JSON.stringify(cuentas)}
 Transferencias del usuario: ${JSON.stringify(transferencias)}`;
 
-// Historial de la conversacion (la memoria). Empieza con el system.
+//TO-DO(HAMP): Historial de la conversacion (la memoria). Empieza con el system.
 const mensajes = [{ role: "system", content: SYSTEM }];
 
 
-// ----- Conexion con OpenAI -----
+// TO-DO(HAMP): Conexion con OpenAI 
 
 const openai = async (ruta, body) => {
   const r = await fetch(`https://api.openai.com/v1/${ruta}`, {
@@ -41,31 +41,31 @@ const openai = async (ruta, body) => {
 };
 
 
-// ----- Generar texto (con memoria) -----
+// TO-DO(HAMP): Generar texto (con memoria) 
 
 const enviarTexto = async (e) => {
   e.preventDefault();
   const texto = inputPreg.value.trim();
   if (!texto) return;
 
-  // Muestra tu mensaje, limpia el input y pinta el "Procesando...".
+  // TO-DO(HAMP): Muestra tu mensaje, limpia el input y pinta el "Procesando...".
   chat.innerHTML += `<p><b>Tu:</b> ${texto}</p>`;
   inputPreg.value = "";
   chat.innerHTML += `<p><i>Procesando...</i></p>`;
   const esperando = chat.lastElementChild;
 
-  // Guarda tu pregunta en el historial y manda TODO a OpenAI.
+  // TO-DO(HAMP): Guarda tu pregunta en el historial y manda TODO a OpenAI.
   mensajes.push({ role: "user", content: texto });
   const data = await openai("chat/completions", { model: "gpt-4o-mini", messages: mensajes });
   const respuesta = data.choices[0].message.content;
 
-  // Guarda la respuesta (asi recuerda) y la muestra.
+  // TO-DO(HAMP): Guarda la respuesta (asi recuerda) y la muestra.
   mensajes.push({ role: "assistant", content: respuesta });
   esperando.innerHTML = `<b>IA:</b> ${respuesta}`;
 };
 
 
-// ----- Generar imagen -----
+// TO-DO(HAMP): Generar imagen 
 
 const crearImagen = async () => {
   const texto = inputPreg.value.trim();
@@ -81,7 +81,7 @@ const crearImagen = async () => {
 };
 
 
-// ----- Eventos -----
+// TO-DO(HAMP): Eventos
 
 form.addEventListener("submit", enviarTexto);
 btnImagen.addEventListener("click", crearImagen);
